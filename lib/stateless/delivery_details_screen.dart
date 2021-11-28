@@ -26,7 +26,7 @@ class DeliveryDetailsScreen extends StatelessWidget {
           leading: IconButton(
             icon: Image.asset('assets/images/back-icon.png'),
             onPressed: () {
-              Navigator.push(
+              Navigator.pushReplacement(
                 context,
                 MaterialPageRoute(
                   builder: (context) => const ShoppingCartScreen(),
@@ -87,7 +87,7 @@ class DeliveryDetailsScreen extends StatelessWidget {
                     Navigator.pushReplacement(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => CompleteOrderScreen(),
+                        builder: (context) => const CompleteOrderScreen(),
                       ),
                     );
                   },

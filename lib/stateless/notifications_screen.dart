@@ -20,12 +20,7 @@ class NotificationsScreen extends StatelessWidget {
           leading: IconButton(
             icon: Image.asset('assets/images/back-icon.png'),
             onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const TypesScreen(),
-                ),
-              );
+              Navigator.pop(context);
             },
           ),
           title: Text(
@@ -38,14 +33,16 @@ class NotificationsScreen extends StatelessWidget {
         physics: const BouncingScrollPhysics(),
         itemCount: 10,
         itemBuilder: (context, index) {
-          return NotificationItem(onTap: (){
-            Navigator.pushReplacement(
+          return NotificationItem(
+            onTap: () {
+              /*Navigator.pushReplacement(
               context,
               MaterialPageRoute(
-                builder: (context) => OrdersScreen(),
+                builder: (context) => const //ScreenName,
               ),
-            );
-          });
+            );*/
+            },
+          );
         },
       ),
     );
@@ -55,10 +52,11 @@ class NotificationsScreen extends StatelessWidget {
 class NotificationItem extends StatelessWidget {
   const NotificationItem({Key? key, required this.onTap}) : super(key: key);
   final Function onTap;
+
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: (){
+      onTap: () {
         onTap();
       },
       child: Container(
@@ -132,6 +130,7 @@ class NotificationItem extends StatelessWidget {
                         'منذ دقيقتين',
                         style: Theme.of(context).textTheme.bodyText2!.copyWith(
                               fontSize: 8.sp,
+                              fontWeight: FontWeight.w700,
                             ),
                       ),
                       SizedBox(height: 1.h),

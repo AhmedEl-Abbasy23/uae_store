@@ -2,22 +2,17 @@ import 'package:device_preview/device_preview.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
-import 'package:uae_store/stateful/complete_order_screen.dart';
 import 'package:uae_store/stateful/favorite_screen.dart';
-import 'package:uae_store/stateful/language_screen.dart';
-import 'package:uae_store/stateful/orders_screen.dart';
-import 'package:uae_store/stateful/search_screen.dart';
-import 'package:uae_store/stateful/shopping_cart_screen.dart';
+import 'package:uae_store/stateful/home_screen.dart';
+import 'package:uae_store/stateful/layout_screen.dart';
 import 'package:uae_store/stateful/types_screen.dart';
-import 'package:uae_store/stateless/app_info_screen.dart';
-import 'package:uae_store/stateless/delivery_details_screen.dart';
 import 'package:uae_store/stateless/help_questions_screen.dart';
-import 'package:uae_store/stateless/joinus_screen.dart';
+import 'package:uae_store/stateless/inside_store.dart';
+import 'package:uae_store/stateless/login_screen.dart';
 import 'package:uae_store/stateless/notifications_screen.dart';
 import 'package:uae_store/stateless/profile_screen.dart';
-import 'package:uae_store/stateless/qrcode_screen.dart';
+import 'package:uae_store/stateless/signup_screen.dart';
 import 'package:uae_store/stateless/splash_screen.dart';
-import 'package:uae_store/stateless/terms_conditions_screen.dart';
 
 import 'color.dart';
 
@@ -43,6 +38,11 @@ class MyApp extends StatelessWidget {
           child: MaterialApp(
             debugShowCheckedModeBanner: false,
             theme: ThemeData(
+              appBarTheme: const AppBarTheme(
+                centerTitle: true,
+                elevation: 0.0,
+                backgroundColor: AppColors.lightBlue,
+              ),
               textTheme: TextTheme(
                 // for appBar title
                 bodyText1: TextStyle(
@@ -62,7 +62,7 @@ class MyApp extends StatelessWidget {
             ),
             // useInheritedMediaQuery: true,
             // locale: DevicePreview.locale(context),
-            home: HelpQuestionsScreen(),
+            home: const SplashScreen(),
           ),
         );
       },

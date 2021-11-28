@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 
 import '../color.dart';
+import 'layout_screen.dart';
 
 class LanguageScreen extends StatefulWidget {
   const LanguageScreen({Key? key}) : super(key: key);
@@ -25,12 +26,12 @@ class _LanguageScreenState extends State<LanguageScreen> {
           leading: IconButton(
             icon: Image.asset('assets/images/back-icon.png'),
             onPressed: () {
-              /* Navigator.push(
+              Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => DeliveryDetailsScreen(),
+                  builder: (context) => const LayoutScreen(),
                 ),
-              );*/
+              );
             },
           ),
           title: Text(
@@ -69,7 +70,7 @@ class _LanguageScreenState extends State<LanguageScreen> {
                 },
                 title: Text(
                   'العربية',
-                  textAlign: TextAlign.right,
+                  textAlign: TextAlign.start,
                   style: Theme.of(context).textTheme.bodyText1!.copyWith(
                         fontSize: 12.sp,
                         color: selected == 0 ? Colors.white : Colors.black,
@@ -104,7 +105,7 @@ class _LanguageScreenState extends State<LanguageScreen> {
                 },
                 title: Text(
                   'الإنجليزية',
-                  textAlign: TextAlign.right,
+                  textAlign: TextAlign.start,
                   style: Theme.of(context).textTheme.bodyText1!.copyWith(
                         fontSize: 12.sp,
                         color: selected == 1 ? Colors.white : Colors.black,

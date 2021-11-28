@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
+import 'package:uae_store/stateful/layout_screen.dart';
 
 import '../color.dart';
 
@@ -21,12 +22,12 @@ class AppInfoScreen extends StatelessWidget {
             leading: IconButton(
               icon: Image.asset('assets/images/back-icon.png'),
               onPressed: () {
-                /*Navigator.push(
+                Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => InsideStore(),
+                    builder: (context) => const LayoutScreen(),
                   ),
-                );*/
+                );
               },
             ),
             title: Text(

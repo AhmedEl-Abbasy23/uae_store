@@ -15,53 +15,7 @@ class OrdersScreen extends StatefulWidget {
 class _OrdersScreenState extends State<OrdersScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: PreferredSize(
-        preferredSize: Size.fromHeight(8.h),
-        child: AppBar(
-          centerTitle: true,
-          elevation: 0.0,
-          backgroundColor: AppColors.lightBlue,
-          leading: IconButton(
-            icon: Image.asset('assets/images/bell1.png'),
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const NotificationsScreen(),
-                ),
-              );
-            },
-          ),
-          title: Text(
-            'طلباتي',
-            style: Theme.of(context).textTheme.bodyText1,
-          ),
-          actions: [
-            IconButton(
-              icon: Stack(
-                alignment: Alignment.topRight,
-                children: [
-                  Image.asset('assets/images/bag2.png'),
-                  const CircleAvatar(
-                    backgroundColor: Colors.lightGreenAccent,
-                    radius: 6.0,
-                  ),
-                ],
-              ),
-              onPressed: () {
-                Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => QRScreen(),
-                  ),
-                );
-              },
-            ),
-          ],
-        ),
-      ),
-      body: ListView.builder(
+    return ListView.builder(
         physics: const BouncingScrollPhysics(),
         itemCount: 10,
         itemBuilder: (context, index) {
@@ -70,8 +24,7 @@ class _OrdersScreenState extends State<OrdersScreen> {
             onReorderTap: () {},
           );
         },
-      ),
-    );
+      );
   }
 }
 
@@ -151,7 +104,7 @@ class OrderItem extends StatelessWidget {
                 textDirection: TextDirection.rtl,
                 children: [
                   RichText(
-                    textAlign: TextAlign.right,
+                    textAlign: TextAlign.start,
                     textDirection: TextDirection.rtl,
                     text: TextSpan(
                       style: Theme.of(context).textTheme.bodyText1!.copyWith(

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
+import 'package:uae_store/stateful/layout_screen.dart';
 
 import '../color.dart';
 
@@ -22,12 +23,12 @@ class JoinUsScreenScreen extends StatelessWidget {
           leading: IconButton(
             icon: Image.asset('assets/images/back-icon.png'),
             onPressed: () {
-              /*Navigator.push(
+              Navigator.pushReplacement(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => const ShoppingCartScreen(),
+                  builder: (context) => const LayoutScreen(),
                 ),
-              );*/
+              );
             },
           ),
           title: Text(

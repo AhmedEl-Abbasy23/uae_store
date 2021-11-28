@@ -27,12 +27,7 @@ class _ShoppingCartScreenState extends State<ShoppingCartScreen> {
           leading: IconButton(
             icon: Image.asset('assets/images/back-icon.png'),
             onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const NotificationsScreen(),
-                ),
-              );
+              Navigator.pop(context);
             },
           ),
           title: Text(
@@ -128,7 +123,7 @@ class _ShoppingCartScreenState extends State<ShoppingCartScreen> {
                 Expanded(
                   child: Text(
                     'تفاصيل عربة التسوق',
-                    textAlign: TextAlign.right,
+                    textAlign: TextAlign.start,
                     style: Theme.of(context).textTheme.bodyText1!.copyWith(
                           fontSize: 16.sp,
                         ),
@@ -180,7 +175,7 @@ class OrderItem extends StatelessWidget {
                 textDirection: TextDirection.rtl,
                 children: [
                   RichText(
-                    textAlign: TextAlign.right,
+                    textAlign: TextAlign.start,
                     textDirection: TextDirection.rtl,
                     text: TextSpan(
                       style: Theme.of(context).textTheme.bodyText1!.copyWith(

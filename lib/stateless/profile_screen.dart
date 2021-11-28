@@ -1,211 +1,228 @@
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
+import 'package:uae_store/stateful/language_screen.dart';
+import 'package:uae_store/stateful/layout_screen.dart';
+import 'package:uae_store/stateless/app_info_screen.dart';
+import 'package:uae_store/stateless/help_questions_screen.dart';
+import 'package:uae_store/stateless/joinus_screen.dart';
+import 'package:uae_store/stateless/terms_conditions_screen.dart';
 
 import '../color.dart';
 
 class ProfileScreen extends StatelessWidget {
   ProfileScreen({Key? key}) : super(key: key);
 
-  bool isLogin = false;
+  bool isLogin = true;
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: PreferredSize(
-        preferredSize: Size.fromHeight(8.h),
-        child: AppBar(
-          centerTitle: true,
-          elevation: 0.0,
-          backgroundColor: AppColors.lightBlue,
-          leading: IconButton(
-            icon: Image.asset('assets/images/bell1.png'),
-            onPressed: () {
-              /* Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => DeliveryDetailsScreen(),
-                ),
-              );*/
-            },
-          ),
-          title: Text(
-            'الصفحة الشخصية',
-            style: Theme.of(context).textTheme.bodyText1,
-          ),
-          actions: [
-            IconButton(
-              icon: Stack(
-                alignment: Alignment.topRight,
-                children: [
-                  Image.asset('assets/images/bag2.png'),
-                  const CircleAvatar(
-                    backgroundColor: Colors.lightGreenAccent,
-                    radius: 6.0,
+    return SingleChildScrollView(
+      physics: const BouncingScrollPhysics(),
+      padding: EdgeInsets.symmetric(vertical: 2.h),
+      child: Column(
+        children: [
+          // Icons & Logo.
+          isLogin
+              ?
+              // if user logged in.
+              Container(
+                  margin: EdgeInsets.symmetric(horizontal: 2.w),
+                  decoration: BoxDecoration(
+                    color: AppColors.skyBlue.withOpacity(0.31),
+                    borderRadius: BorderRadius.circular(25.0),
                   ),
-                ],
-              ),
-              onPressed: () {},
-            ),
-          ],
-        ),
-      ),
-      body: SingleChildScrollView(
-        padding: EdgeInsets.symmetric(vertical: 2.h),
-        child: Column(
-          children: [
-            // Icons & Logo
-            isLogin
-                ?
-                // if user logged in.
-                Container(
-                    color: Colors.white,
-                    height: 18.h,
-                    padding:
-                        EdgeInsets.symmetric(horizontal: 10.w, vertical: 2.h),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Expanded(
-                          child: Text(
-                            'أهلاً بك',
-                            textAlign: TextAlign.right,
-                            style:
-                                Theme.of(context).textTheme.bodyText2!.copyWith(
-                                      color: AppColors.lightBlue,
-                                      fontWeight: FontWeight.w600,
-                                      fontSize: 17.sp,
-                                    ),
-                          ),
+                  padding: EdgeInsets.symmetric(horizontal: 8.w),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Expanded(
+                        child: Text(
+                          'أهلاً بك',
+                          textAlign: TextAlign.start,
+                          style:
+                              Theme.of(context).textTheme.bodyText2!.copyWith(
+                                    color: AppColors.lightBlue,
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 17.sp,
+                                  ),
                         ),
-                        Expanded(child: Image.asset('assets/images/logo2.png')),
-                      ],
-                    ),
-                  ): Container(
-              color: Colors.white,
-              height: 20.h,
-              padding:
-              EdgeInsets.symmetric(horizontal: 10.w, vertical: 2.h),
-              child: Row(
-                children: [
-                  Expanded(
-                    child: Column(
-                      children: [
-                        RichText(
-                          textDirection: TextDirection.rtl,
-                          text: TextSpan(
-                            style: Theme.of(context)
-                                .textTheme
-                                .bodyText2!
-                                .copyWith(
-                              fontSize: 10.sp,
-                              fontWeight: FontWeight.w600,
-                            ),
-                            children: [
-                              TextSpan(
-                                text: 'أهلاً بك',
+                      ),
+                      Expanded(
+                        child: Image.asset('assets/images/logo2.png'),
+                      ),
+                    ],
+                  ),
+                )
+              : Container(
+                  height: 20.h,
+                  margin: EdgeInsets.symmetric(horizontal: 2.w),
+                  decoration: BoxDecoration(
+                    color: AppColors.skyBlue.withOpacity(0.31),
+                    borderRadius: BorderRadius.circular(25.0),
+                  ),
+                  padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 2.h),
+                  child: Row(
+                    children: [
+                      Expanded(
+                        child: Column(
+                          children: [
+                            RichText(
+                              textDirection: TextDirection.rtl,
+                              text: TextSpan(
                                 style: Theme.of(context)
                                     .textTheme
                                     .bodyText2!
                                     .copyWith(
-                                  color: AppColors.lightBlue,
-                                  fontWeight: FontWeight.w600,
-                                  fontSize: 10.sp,
+                                      fontSize: 10.sp,
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                                children: [
+                                  TextSpan(
+                                    text: 'أهلاً بك',
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .bodyText2!
+                                        .copyWith(
+                                          color: AppColors.lightBlue,
+                                          fontWeight: FontWeight.w600,
+                                          fontSize: 10.sp,
+                                        ),
+                                  ),
+                                  const TextSpan(
+                                    text: '.... سجل الدخول\nواستمتع بخدماتنا',
+                                  ),
+                                ],
+                              ),
+                            ),
+                            SizedBox(height: 1.5.h),
+                            Expanded(
+                              child: InkWell(
+                                onTap: () {},
+                                child: Container(
+                                  height: 5.h,
+                                  width: 26.w,
+                                  alignment: Alignment.center,
+                                  decoration: BoxDecoration(
+                                    color: AppColors.lightBlue,
+                                    borderRadius: BorderRadius.circular(15.0),
+                                  ),
+                                  child: Text(
+                                    'تسجيل الدخول',
+                                    textAlign: TextAlign.center,
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .bodyText2!
+                                        .copyWith(color: Colors.white),
+                                  ),
                                 ),
                               ),
-                              const TextSpan(
-                                text: '.... سجل الدخول\nواستمتع بخدماتنا',
-                              ),
-                            ],
-                          ),
-                        ),
-                        SizedBox(height: 1.5.h),
-                        Expanded(
-                          child: InkWell(
-                            onTap: () {},
-                            child: Container(
-                              height: 5.h,
-                              width: 26.w,
-                              alignment: Alignment.center,
-                              decoration: BoxDecoration(
-                                color: AppColors.lightBlue,
-                                borderRadius: BorderRadius.circular(15.0),
-                              ),
+                            ),
+                            OutlinedButton(
+                              onPressed: () {},
                               child: Text(
-                                'تسجيل الدخول',
+                                'إنشاء حساب',
                                 textAlign: TextAlign.center,
                                 style: Theme.of(context)
                                     .textTheme
                                     .bodyText2!
-                                    .copyWith(color: Colors.white),
+                                    .copyWith(
+                                      color: AppColors.lightBlue,
+                                    ),
+                              ),
+                              style: OutlinedButton.styleFrom(
+                                side: const BorderSide(
+                                    color: AppColors.lightBlue),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(15.0),
+                                ),
                               ),
                             ),
-                          ),
+                          ],
                         ),
-                        OutlinedButton(
-                          onPressed: () {},
-                          child: Text(
-                            'إنشاء حساب',
-                            textAlign: TextAlign.center,
-                            style: Theme.of(context)
-                                .textTheme
-                                .bodyText2!
-                                .copyWith(
-                              color: AppColors.lightBlue,
-                            ),
-                          ),
-                          style: OutlinedButton.styleFrom(
-                            side: const BorderSide(
-                                color: AppColors.lightBlue),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(15.0),
-                            ),
-                          ),
-                        ),
-                      ],
+                      ),
+                      Image.asset('assets/images/logo2.png'),
+                    ],
+                  ),
+                ),
+          SizedBox(height: 2.h),
+          Column(
+            children: [
+              if (isLogin)
+                ProfileCategory(
+                  title: 'أبراج بحيرة جميرا',
+                  leadingImgPath: 'assets/images/place2.png',
+                  onTap: () {
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const LayoutScreen(),
+                      ),
+                    );
+                  },
+                ),
+              ProfileCategory(
+                title: 'عن التطبيق',
+                leadingImgPath: 'assets/images/info-button.png',
+                onTap: () {
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => AppInfoScreen(),
                     ),
-                  ),
-                  Image.asset('assets/images/logo2.png'),
-                ],
+                  );
+                },
               ),
-            ),
-            SizedBox(height: 2.h),
-            Column(
-              children: [
-                if (isLogin)
-                  ProfileCategory(
-                    title: 'أبراج بحيرة جميرا',
-                    leadingImgPath: 'assets/images/place2.png',
-                    onTap: () {},
-                  ),
-                ProfileCategory(
-                  title: 'عن التطبيق',
-                  leadingImgPath: 'assets/images/info-button.png',
-                  onTap: () {},
-                ),
-                ProfileCategory(
-                  title: 'أسئلة المساعدة',
-                  leadingImgPath: 'assets/images/question.png',
-                  onTap: () {},
-                ),
-                ProfileCategory(
-                  title: 'الشروط والأحكام',
-                  leadingImgPath: 'assets/images/terms-and-conditions.png',
-                  onTap: () {},
-                ),
-                ProfileCategory(
-                  title: 'اللغة',
-                  leadingImgPath: 'assets/images/world.png',
-                  onTap: () {},
-                ),
-                ProfileCategory(
-                  title: 'إنضم إلينا كمتجر',
-                  leadingImgPath: 'assets/images/help.png',
-                  onTap: () {},
-                ),
-              ],
-            ),
-          ],
-        ),
+              ProfileCategory(
+                title: 'أسئلة المساعدة',
+                leadingImgPath: 'assets/images/question.png',
+                onTap: () {
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const HelpQuestionsScreen(),
+                    ),
+                  );
+                },
+              ),
+              ProfileCategory(
+                title: 'الشروط والأحكام',
+                leadingImgPath: 'assets/images/terms-and-conditions.png',
+                onTap: () {
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => TermsAndConditionsScreen(),
+                    ),
+                  );
+                },
+              ),
+              ProfileCategory(
+                title: 'اللغة',
+                leadingImgPath: 'assets/images/world.png',
+                onTap: () {
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const LanguageScreen(),
+                    ),
+                  );
+                },
+              ),
+              ProfileCategory(
+                title: 'إنضم إلينا كمتجر',
+                leadingImgPath: 'assets/images/help.png',
+                onTap: () {
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => JoinUsScreenScreen(),
+                    ),
+                  );
+                },
+              ),
+            ],
+          ),
+        ],
       ),
     );
   }

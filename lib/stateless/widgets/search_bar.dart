@@ -4,18 +4,21 @@ import 'package:sizer/sizer.dart';
 import '../../color.dart';
 
 class SearchBar extends StatelessWidget {
-  const SearchBar({Key? key, required this.searchController}) : super(key: key);
+  const SearchBar({
+    Key? key,
+    required this.searchController,
+    required this.onSearchPressed,
+    required this.onBarcodePressed,
+  }) : super(key: key);
 
   final TextEditingController searchController;
+  final Function onSearchPressed;
+  final Function onBarcodePressed;
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.only(
-        left: 12.w,
-        right: 12.w,
-        bottom: 3.h,
-      ),
+    return SizedBox(
+      height: 4.h,
       child: TextFormField(
         controller: searchController,
         style: TextStyle(
@@ -25,19 +28,25 @@ class SearchBar extends StatelessWidget {
         ),
         cursorColor: AppColors.lightBlue,
         textDirection: TextDirection.rtl,
+        textAlign: TextAlign.start,
+        maxLines: 1,
         decoration: InputDecoration(
           hintText: 'بحث....',
-          hintStyle: const TextStyle(fontFamily: 'Bukra-Regular'),
+          hintStyle: const TextStyle(fontFamily: 'Bukra-Regular', height: 0.5),
           hintTextDirection: TextDirection.rtl,
           filled: true,
           fillColor: Colors.white,
           prefixIcon: IconButton(
             icon: Image.asset('assets/images/search.png'),
-            onPressed: () {},
+            onPressed: () {
+              onSearchPressed();
+            },
           ),
           suffixIcon: IconButton(
             icon: Image.asset('assets/images/barcode.png'),
-            onPressed: () {},
+            onPressed: () {
+              onBarcodePressed();
+            },
           ),
           focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(35.0),

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 import 'package:uae_store/color.dart';
 import 'package:uae_store/stateful/types_screen.dart';
-import 'package:uae_store/stateless/notifications_screen.dart';
+import 'package:uae_store/stateless/qrcode_screen.dart';
 import 'package:uae_store/stateless/widgets/search_bar.dart';
 
 class SearchScreen extends StatefulWidget {
@@ -20,27 +20,32 @@ class _SearchScreenState extends State<SearchScreen> {
     return SafeArea(
       child: Scaffold(
         appBar: PreferredSize(
-          preferredSize: Size.fromHeight(10.h),
+          preferredSize: Size.fromHeight(8.h),
           child: AppBar(
             centerTitle: true,
             toolbarHeight: 100,
             elevation: 0.0,
             backgroundColor: AppColors.lightBlue,
-            leading: Padding(
-              padding: EdgeInsets.only(top: 1.h),
-              child: IconButton(
-                icon: Image.asset('assets/images/back-icon.png'),
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const TypesScreen(),
-                    ),
-                  );
-                },
-              ),
+            leading: IconButton(
+              icon: Image.asset('assets/images/back-icon.png'),
+              onPressed: () {
+                Navigator.pop(context);
+              },
             ),
-            title: Container(
+            title: SearchBar(
+              searchController: _searchController,
+              onSearchPressed: () {
+              },
+              onBarcodePressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const QRScreen(),
+                  ),
+                );
+              },
+            ),
+            /*Container(
               margin: EdgeInsets.only(top: 1.h),
               width: MediaQuery.of(context).size.width,
               height: 6.h,
@@ -80,7 +85,8 @@ class _SearchScreenState extends State<SearchScreen> {
                       iconSize: 35,
                     ),
                     onPressed: () {
-                      /* Clear the search field */
+                      */
+            /* Clear the search field */ /*
                     },
                   ),
                   focusedBorder: OutlineInputBorder(
@@ -95,7 +101,7 @@ class _SearchScreenState extends State<SearchScreen> {
                   ),
                 ),
               ),
-            ),
+            ),*/
           ),
         ),
         body: Center(

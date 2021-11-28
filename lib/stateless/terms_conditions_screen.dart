@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
+import 'package:uae_store/stateful/layout_screen.dart';
 
 import '../color.dart';
 
@@ -21,12 +22,12 @@ class TermsAndConditionsScreen extends StatelessWidget {
             leading: IconButton(
               icon: Image.asset('assets/images/back-icon.png'),
               onPressed: () {
-                /*Navigator.push(
+                Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => InsideStore(),
+                    builder: (context) => const LayoutScreen(),
                   ),
-                );*/
+                );
               },
             ),
             title: Text(
@@ -49,20 +50,22 @@ class TermsAndConditionsScreen extends StatelessWidget {
             ),
           ),
         ),
-        body: Container(
-          height: MediaQuery.of(context).size.height,
-          margin: EdgeInsets.symmetric(horizontal: 2.w,vertical: 2.h),
-          padding: EdgeInsets.symmetric(horizontal: 2.w,vertical: 2.h),
-          decoration: const BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(20.0),
-              topRight: Radius.circular(20.0),
+        body: SingleChildScrollView(
+          child: Container(
+            height: MediaQuery.of(context).size.height,
+            margin: EdgeInsets.symmetric(horizontal: 2.w,vertical: 2.h),
+            padding: EdgeInsets.symmetric(horizontal: 2.w,vertical: 2.h),
+            decoration: const BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(20.0),
+                topRight: Radius.circular(20.0),
+              ),
             ),
-          ),
-          child: Text(
-            _termsAndConditionsText,
-            style: Theme.of(context).textTheme.bodyText2,
+            child: Text(
+              _termsAndConditionsText,
+              style: Theme.of(context).textTheme.bodyText2,
+            ),
           ),
         ),
       ),

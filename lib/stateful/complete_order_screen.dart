@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
+import 'package:uae_store/stateful/shopping_cart_screen.dart';
 import 'package:uae_store/stateless/delivery_details_screen.dart';
 
 import '../color.dart';
@@ -25,12 +26,12 @@ class _CompleteOrderScreenState extends State<CompleteOrderScreen> {
           leading: IconButton(
             icon: Image.asset('assets/images/back-icon.png'),
             onPressed: () {
-              Navigator.push(
+              /*Navigator.pushReplacement(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => DeliveryDetailsScreen(),
+                  builder: (context) => const ShoppingCartScreen(),
                 ),
-              );
+              );*/
             },
           ),
           title: Text(
@@ -167,7 +168,7 @@ class OrderItem extends StatelessWidget {
                 textDirection: TextDirection.rtl,
                 children: [
                   RichText(
-                    textAlign: TextAlign.right,
+                    textAlign: TextAlign.start,
                     textDirection: TextDirection.rtl,
                     text: TextSpan(
                       style: Theme.of(context).textTheme.bodyText1!.copyWith(

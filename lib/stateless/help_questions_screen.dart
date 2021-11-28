@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
+import 'package:uae_store/stateful/layout_screen.dart';
 
 import '../color.dart';
 
@@ -18,12 +19,12 @@ class HelpQuestionsScreen extends StatelessWidget {
           leading: IconButton(
             icon: Image.asset('assets/images/back-icon.png'),
             onPressed: () {
-              /*Navigator.push(
+              Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => const ShoppingCartScreen(),
+                  builder: (context) => const LayoutScreen(),
                 ),
-              );*/
+              );
             },
           ),
           title: Text(
@@ -111,7 +112,7 @@ class QuestionExpansionTile extends StatelessWidget {
             alignment: Alignment.centerRight,
             child: Text(
               answerText,
-              textAlign: TextAlign.right,
+              textAlign: TextAlign.start,
               style: Theme.of(context).textTheme.bodyText1!.copyWith(
                     color: AppColors.grey.withOpacity(0.6),
                     fontSize: 10.sp,

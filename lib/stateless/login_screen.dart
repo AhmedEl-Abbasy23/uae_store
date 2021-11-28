@@ -58,7 +58,7 @@ class LoginScreen extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
                     RichText(
-                      textAlign: TextAlign.right,
+                      textAlign: TextAlign.start,
                       text: TextSpan(
                         children: const [
                           TextSpan(

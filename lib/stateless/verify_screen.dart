@@ -3,6 +3,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:sizer/sizer.dart';
 import 'package:uae_store/color.dart';
 import 'package:uae_store/stateful/home_screen.dart';
+import 'package:uae_store/stateful/layout_screen.dart';
 import 'package:uae_store/stateless/signup_screen.dart';
 import 'package:uae_store/stateless/widgets/buttons.dart';
 import 'package:uae_store/stateless/widgets/text_form_field.dart';
@@ -56,7 +57,7 @@ class VerifyScreen extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
                     RichText(
-                      textAlign: TextAlign.right,
+                      textAlign: TextAlign.start,
                       text: TextSpan(
                         children: const [
                           TextSpan(
@@ -100,7 +101,7 @@ class VerifyScreen extends StatelessWidget {
                           Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => HomeScreen(),
+                              builder: (context) => LayoutScreen(),
                             ),
                           );
                         },

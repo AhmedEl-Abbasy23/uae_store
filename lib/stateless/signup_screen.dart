@@ -57,7 +57,7 @@ class SignUpScreen extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     RichText(
-                      textAlign: TextAlign.right,
+                      textAlign: TextAlign.start,
                       text: TextSpan(
                         children: const [
                           TextSpan(
